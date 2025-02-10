@@ -14,13 +14,9 @@ dotenv.config();
 const app= express();
 //middleware
 app.use(express.json());
-const corsOptions = {
-  origin: "http://localhost:5173", // Allow requests from this origin
-  methods: ["GET", "POST"], // Specify allowed methods
-  credentials: true, // Allow cookies or credentials
-};
 
-app.use(cors(corsOptions))
+
+app.use(cors({origin:"*"}))
 app.use(cookieParser());
 
 
