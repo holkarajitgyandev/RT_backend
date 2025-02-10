@@ -14,12 +14,8 @@ dotenv.config();
 const app= express();
 //middleware
 app.use(express.json());
-const corsOptions = {
-    origin: "https://rt-fullstack-project.vercel.app/", // Allow your frontend origin
-    methods: ["GET", "POST", "PATCH", "DELETE"], // Specify allowed methods
-    credentials: true, // Allow cookies or credentials if needed
-  };
-app.use(cors(corsOptions))
+
+app.use(cors())
 app.use(cookieParser());
 
 
