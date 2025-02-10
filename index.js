@@ -13,10 +13,11 @@ dotenv.config();
 
 const app= express();
 //middleware
+app.use(cors({origin:"*"}))
 app.use(express.json());
 
 
-app.use(cors({origin:"*"}))
+
 app.use(cookieParser());
 
 
