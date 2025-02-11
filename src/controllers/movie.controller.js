@@ -3,6 +3,7 @@ import Movies from "../models/movie.model.js"
 
 const getAllMovies=async(req,res)=>{
 try {
+    console.log("getting movies.....");
     const movies= await Movies.find({});
     return res.status(200).send(movies.slice(0,5))
     
