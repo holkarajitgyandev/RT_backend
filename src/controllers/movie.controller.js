@@ -4,7 +4,7 @@ import Movies from "../models/movie.model.js"
 const getAllMovies=async(req,res)=>{
 try {
     const movies= await Movies.find({});
-    return res.status(200).send(movies.splice(0,5))
+    return res.status(200).send(movies.slice(0,5))
     
 } catch (error) {
     return res.status(500).send({message:"error in getting movies",error:error.message})
