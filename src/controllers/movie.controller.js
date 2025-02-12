@@ -1,33 +1,33 @@
 import Movies from "../models/movie.model.js"
 
 
-// const getAllMovies=async(req,res)=>{
-// try {
-//     console.log("getting movies.....");
-//     const movies= await Movies.find({});
-//     return res.status(200).send(movies.slice(0,5))
+const getAllMovies=async(req,res)=>{
+try {
+    console.log("getting movies.....");
+    const movies= await Movies.find({});
+    return res.status(200).send(movies.slice(0,5))
     
-// } catch (error) {
-//     return res.status(500).send({message:"error in getting movies",error:error.message})
-// }
-// }
-const getAllMovies = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
-  try {
-    console.log(`Fetching page ${page} with limit ${limit}`);
-    const movies = await Movies.find({})
-      .skip((page - 1) * limit)
-      .limit(parseInt(limit));
-    console.log('Movies fetched:', movies.length);
-    return res.status(200).send(movies);
-  } catch (error) {
-    console.error('Error in fetching movies:', error.message);
-    return res.status(500).send({
-      message: 'Error in getting movies',
-      error: error.message,
-    });
-  }
-};
+} catch (error) {
+    return res.status(500).send({message:"error in getting movies",error:error.message})
+}
+}
+// const getAllMovies = async (req, res) => {
+//   const { page = 1, limit = 10 } = req.query;
+//   try {
+//     console.log(`Fetching page ${page} with limit ${limit}`);
+//     const movies = await Movies.find({})
+//       .skip((page - 1) * limit)
+//       .limit(parseInt(limit));
+//     console.log('Movies fetched:', movies.length);
+//     return res.status(200).send(movies);
+//   } catch (error) {
+//     console.error('Error in fetching movies:', error.message);
+//     return res.status(500).send({
+//       message: 'Error in getting movies',
+//       error: error.message,
+//     });
+//   }
+// };
 
 
 const getMovie= async(req,res)=>{
