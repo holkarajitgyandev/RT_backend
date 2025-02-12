@@ -5,7 +5,7 @@ const getAllMovies=async(req,res)=>{
 try {
     console.log("getting movies.....");
     const movies= await Movies.find({});
-    return res.status(200).send(movies.slice(0,5))
+    return res.status(200).send(movies)
     
 } catch (error) {
     return res.status(500).send({message:"error in getting movies",error:error.message})
